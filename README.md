@@ -27,8 +27,3 @@ To run the Enapter Gateway Landing Page locally, follow these steps:
 2. Install dependencies using `npm install`.
 3. Start the development server with `npm run dev`.
 4. Open your web browser and navigate to `http://localhost:3000`.
-
-## Additional Information
-
-- **Landing Page URL:** [Enapter Gateway Landing Page](https://fw.enapter.com/)
-- **Contact:** For any questions, feedback or support requests, please contact us at support@enapter.com.
