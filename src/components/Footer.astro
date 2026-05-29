@@ -1,0 +1,183 @@
+---
+import FaceBookIcon from "./imageComponents/FacebookIcon.astro";
+import InstagramIcon from "./imageComponents/InstagramIcon.astro";
+import TwitterIcon from "./imageComponents/TwitterIcon.astro";
+import LinkedinIcon from "./imageComponents/LinkedinIcon.astro";
+import YouTubeIcon from "./imageComponents/YoutubeIcon.astro";
+import AppStore from "./imageComponents/AppStore.astro";
+import GooglePlay from "./imageComponents/GooglePlay.astro";
+import GithubIcon from "./imageComponents/GithubIcon.astro";
+import LightModeLogo from "./imageComponents/LightModeLogo.astro";
+import DarkModeLogo from "./imageComponents/DarkModeLogo.astro";
+import ChevronIcon from "./imageComponents/ChevronIcon.astro";
+import DiscordButton from "./DiscordButton.astro";
+import AppGallery from "./imageComponents/AppGallery.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer
+  class="grow-0 border-t border-divider2 pt-10 mt-16 md:mt-[120px]"
+  aria-labelledby="footer-heading"
+>
+  <h2 id="footer-heading" class="sr-only">Footer</h2>
+  <div class="mb-10 flex flex-col gap-14 lg:flex-row lg:justify-between">
+    <section class="flex flex-col">
+      <div class="mb-10">
+        <a
+          href="https://www.enapter.com/"
+          target="_blank"
+          aria-label="Enapter homepage"
+        >
+          <LightModeLogo aria-hidden="true" />
+          <DarkModeLogo aria-hidden="true" />
+        </a>
+      </div>
+      <div class="flex flex-wrap gap-4 mb-8" aria-label="Social media links">
+        <a
+          href="https://www.linkedin.com/company/enapter/"
+          target="_blank"
+          class="group w-12 h-12 border border-border rounded-full flex items-center justify-center cursor-pointer hover:border-borderHover hover:transition-colors hover:duration-200"
+          aria-label="LinkedIn"
+        >
+          <LinkedinIcon aria-hidden="true" />
+        </a>
+        <a
+          href="https://twitter.com/Enapter_"
+          target="_blank"
+          class="group w-12 h-12 border border-border rounded-full flex items-center justify-center cursor-pointer hover:border-borderHover hover:transition-colors hover:duration-200"
+          aria-label="Twitter"
+        >
+          <TwitterIcon aria-hidden="true" />
+        </a>
+        <a
+          href="https://www.youtube.com/channel/UChWhcLokk1R2U78JJXemcFA"
+          target="_blank"
+          class="group w-12 h-12 border border-border rounded-full flex items-center justify-center cursor-pointer hover:border-borderHover hover:transition-colors hover:duration-200"
+          aria-label="YouTube"
+        >
+          <YouTubeIcon aria-hidden="true" />
+        </a>
+        <a
+          href="https://www.facebook.com/enapterenergystorage"
+          target="_blank"
+          class="group w-12 h-12 border border-border rounded-full flex items-center justify-center cursor-pointer hover:border-borderHover hover:transition-colors hover:duration-200"
+          aria-label="Facebook"
+        >
+          <FaceBookIcon aria-hidden="true" />
+        </a>
+        <a
+          href="https://www.instagram.com/enapter/"
+          target="_blank"
+          class="group w-12 h-12 border border-border rounded-full flex items-center justify-center cursor-pointer hover:border-borderHover hover:transition-colors hover:duration-200"
+          aria-label="Instagram"
+        >
+          <InstagramIcon aria-hidden="true" />
+        </a>
+      </div>
+      <div
+        class="flex gap-[6px] flex-wrap items-center"
+        aria-label="Mobile app download links"
+      >
+        <a
+          href="https://apps.apple.com/ru/app/enapter/id1388329910"
+          target="_blank"
+          aria-label="Download on the App Store"
+        >
+          <AppStore aria-hidden="true" />
+        </a>
+        <a
+          href="https://play.google.com/store/apps/details?id=com.enapter&pli=1"
+          target="_blank"
+          aria-label="Get it on Google Play"
+        >
+          <GooglePlay aria-hidden="true" />
+        </a>
+        <a
+          href="https://appgallery.huawei.com/app/C110426571"
+          target="_blank"
+          aria-label="Get it on AppGallery"
+        >
+          <AppGallery aria-hidden="true" />
+        </a>
+      </div>
+    </section>
+    <section class="flex flex-col gap-10 md:flex-row md:gap-16">
+      <div class="flex flex-col gap-4">
+        <a
+          href="https://www.enapter.com/"
+          class="text-sm text-textGray leading-5 font-normal hover:text-textGrayHover hover:transition-colors hover:duration-200"
+          target="_blank"
+          aria-label="About Enapter">About Enapter</a
+        >
+        <a
+        href="https://enapter.com/en/enapter-products-aem/ems-toolkit/"
+        target="_blank"
+        class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover hover:transition-colors hover:duration-200"
+        aria-label="Enapter Handbook"
+      >
+        About EMS Toolkit 3.0
+        <ChevronIcon aria-hidden="true" />
+      </a>
+        <a
+          href="https://developers.enapter.com/"
+          target="_blank"
+          class="group text-sm whitespace-nowrap text-textGray leading-5 font-normal flex items-center gap-1 hover:text-textGrayHover hover:transition-colors hover:duration-200"
+          aria-label="Developers Documentation"
+        >
+          Developers Documentation
+          <ChevronIcon aria-hidden="true" />
+        </a>
+        <a
+          href="https://handbook.enapter.com/"
+          target="_blank"
+          class=" group text-sm text-textGray whitespace-nowrap leading-5 font-normal flex items-center gap-1 hover:text-textGrayHover hover:transition-colors hover:duration-200"
+          aria-label="Enapter Handbook"
+        >
+          Enapter Handbook
+          <ChevronIcon aria-hidden="true" />
+        </a>
+      </div>
+      <div class="flex flex-col gap-6">
+        <a
+          href="https://cloud.enapter.com/"
+          target="_blank"
+          class="cursor-pointer w-40 py-4 px-6 bg-blue text-base leading-6 font-semibold text-white rounded-xl whitespace-nowrap border-none hover:bg-blueHover hover:transition-colors hover:duration-200 active:bg-blueActive"
+          aria-label="Enapter Cloud">Enapter Cloud</a
+        >
+        <div class="flex flex-col items-start gap-3">
+          <a
+            href="https://github.com/Enapter/marketplace"
+            class="group border border-border py-1 px-3 rounded-full flex items-center gap-1 text-sm text-text leading-6 font-medium hover:border-borderHover hover:transition-colors hover:duration-200"
+            target="_blank"
+            aria-label="GitHub"
+          >
+            <GithubIcon aria-hidden="true" />
+            GitHub
+          </a>
+          <DiscordButton />
+        </div>
+      </div>
+    </section>
+  </div>
+  <section
+    class="absolute right-0 left-0 mb-10 bg-background3 py-6 text-center w-full"
+  >
+    <p class="text-sm text-textGray leading-5 font-normal">
+      All Rights Reserved &copy; {year} Enapter AG
+    </p>
+    <div class="mt-3">
+      <a
+        href="https://www.enapter.com/privacy-policy"
+        class="footer-link text-sm text-textGray leading-5 font-normal hover:text-textGrayHover hover:transition-colors hover:duration-200"
+        target="_blank">Privacy Policy</a
+      >
+      <span class="mx-3 text-textGray">|</span>
+      <a
+        href="https://www.enapter.com/cookie-policy"
+        class="footer-link text-sm text-textGray leading-5 font-normal hover:text-textGrayHover hover:transition-colors hover:duration-200"
+        target="_blank">Cookies Policy</a
+      >
+    </div>
+  </section>
+</footer>

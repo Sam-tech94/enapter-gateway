@@ -1,0 +1,17 @@
+ <button data-id="toggle-dark-mode-button" class="material-symbols-outlined text-textGray text-lg hover:text-textGrayHover hover:transition-colors hover:duration-200">
+  <span class="hidden dark:inline-block">
+    light_mode
+  </span>
+
+  <span class="dark:hidden">
+    dark_mode
+  </span>
+</button>
+
+<script is:inline>
+  document.querySelectorAll("[data-id=toggle-dark-mode-button]").forEach((btn) => {
+    btn.addEventListener("click", toggleTheme);
+  });
+</script>
+
+

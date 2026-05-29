@@ -1,0 +1,141 @@
+---
+import LightModeLogo from "./imageComponents/LightModeLogo.astro";
+import DarkModeLogo from "./imageComponents/DarkModeLogo.astro";
+import MenuIcon from "./imageComponents/MenuIcon.astro";
+import LightDarkIcon from "./imageComponents/LightDarkIcon.astro";
+---
+
+<style>
+  body.overflow-hidden {
+    overflow-y: hidden !important;
+  }
+</style>
+
+<header
+  id="parentElement"
+  data-draw-menu-open="false"
+  class="group/body sticky w-full top-0 left-0 z-30 bg-background2 flex items-center justify-between h-16 grow-0"
+  aria-label="Site header"
+>
+  <div class="z-50">
+    <a
+      href="https://www.enapter.com/"
+      target="_blank"
+      class="menu-link"
+      aria-label="Enapter Home"
+    >
+      <LightModeLogo aria-hidden="true" />
+      <DarkModeLogo aria-hidden="true" />
+    </a>
+  </div>
+  <nav
+    class="hidden sm:flex space-x-4 items-center"
+    aria-label="Main navigation menu"
+  >
+    <a
+      href="https://enapter.com/en/enapter-products-aem/ems-toolkit/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover hover:transition-colors hover:duration-200"
+      aria-label="Enapter Handbook"
+    >
+      About EMS Toolkit 3.0
+      <MenuIcon aria-hidden="true" />
+    </a>
+    <a
+      href="https://handbook.enapter.com/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover hover:transition-colors hover:duration-200"
+      aria-label="Enapter Handbook"
+    >
+      Handbook
+      <MenuIcon aria-hidden="true" />
+    </a>
+    <a
+      href="https://developers.enapter.com/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover hover:transition-colors hover:duration-200"
+      aria-label="Enapter Developers"
+    >
+      For Developers
+      <MenuIcon aria-hidden="true" />
+    </a>
+
+    <LightDarkIcon />
+  </nav>
+
+  <button
+    id="burger-icon"
+    class="cursor-pointer z-50 flex items-center justify-center sm:hidden"
+    aria-label="Toggle menu"
+  >
+    <span id="menu-close-icon" class="material-symbols-outlined text-text">
+      menu
+    </span>
+  </button>
+
+  <div
+    id="draw-menu"
+    data-menu-open="false"
+    class="group-data-[draw-menu-open=true]/body:translate-y-0 -translate-y-full fixed bg-background2 top-0 z-40 left-0 w-screen pt-20 pb-8 flex flex-col justify-center items-center gap-10 transform transition-transform duration-300 ease-in-out sm:hidden"
+  >
+    <a
+      href="https://enapter.com/en/enapter-products-aem/ems-toolkit/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover hover:transition-colors hover:duration-200"
+      aria-label="Enapter Handbook"
+    >
+      About EMS Toolkit 3.0
+      <MenuIcon aria-hidden="true" />
+    </a>
+    <a
+      href="https://handbook.enapter.com/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover"
+      aria-label="Enapter Handbook"
+    >
+      Handbook
+      <MenuIcon aria-hidden="true" />
+    </a>
+    <a
+      href="https://developers.enapter.com/"
+      target="_blank"
+      class="group flex items-center gap-1 text-sm text-textGray leading-5 font-medium hover:text-textGrayHover"
+      aria-label="Enapter Developers"
+    >
+      For Developers
+      <MenuIcon aria-hidden="true" />
+    </a>
+    <LightDarkIcon aria-label="Toggle light/dark mode" />
+  </div>
+  <div
+    id="overlay"
+    class="group-data-[draw-menu-open=true]/body:block hidden w-full h-full fixed top-0 left-0 bg-black opacity-40 z-20 transition-colors sm:!hidden"
+    aria-hidden="true"
+  >
+  </div>
+</header>
+<div class="fixed left-0 right-0 top-16 border-b border-border"></div>
+
+<script>
+  const hamburgerIcon = document.getElementById("burger-icon");
+  const overlay = document.getElementById("overlay");
+  const burgerCloseIcon = document.getElementById("menu-close-icon");
+  const parentElement = document.getElementById("parentElement");
+
+  function toggleMenu() {
+    const isMenuOpen =
+      parentElement.getAttribute("data-draw-menu-open") === "true";
+
+    if (parentElement) {
+      parentElement.setAttribute(
+        "data-draw-menu-open",
+        isMenuOpen ? "false" : "true"
+      );
+      burgerCloseIcon.innerText = isMenuOpen ? "menu" : "close";
+      document.body.classList.toggle("overflow-hidden", !isMenuOpen);
+    }
+  }
+
+  hamburgerIcon.addEventListener("click", toggleMenu);
+  overlay.addEventListener("click", toggleMenu);
+</script>

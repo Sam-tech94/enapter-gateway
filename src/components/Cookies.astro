@@ -1,0 +1,97 @@
+---
+const GA_ACCEPTED_EVENT_KEY = import.meta.env.GA_ACCEPTED_EVENT_KEY;
+---
+
+<div
+  id="cookie-banner"
+  class="fixed block bottom-0 left-0 right-0 top-auto bg-background3 p-4 shadow-2xl"
+  role="dialog"
+  aria-labelledby="cookie-banner-title"
+  aria-describedby="cookie-banner-description"
+  aria-live="polite"
+  data-ga-event={GA_ACCEPTED_EVENT_KEY}
+>
+  <div class="flex flex-col md:flex-row gap-6">
+    <div>
+      <p id="cookie-banner-title" class="sr-only">Cookie Consent Banner</p>
+      <p
+        id="cookie-banner-description"
+        class="text-textGray2 text-sm font-normal tracking-[0.4px]"
+      >
+        Cookies help our website remember your preferences and improve and
+        analyze our marketing. We exchange data with partners to improve
+        targeting, personalization, and ad performance. By clicking "Accept
+        All," you consent to all cookie usage. Select "Reject All" to allow only
+        critical cookies. See our <a
+          class="text-textLink hover:text-textLinkHover hover:transition-colors"
+          href="https://www.enapter.com/privacy-policy"
+          target="_blank"
+          rel="noreferrer">privacy policy</a
+        > for details.
+      </p>
+    </div>
+    <div class="flex flex-col gap-2 flex-shrink-0 items-center md:flex-row">
+      <button
+        id="reject-cookies-btn"
+        class="rounded-full w-full select-none text-sm text-text font-medium sm:font-semibold sm:text-base py-3 px-6 bg-backgroundObject hover:bg-backgroundObjectHover hover:transition-colors hover:duration-300 active:bg-backgroundObjectActive md:w-auto"
+        role="button"
+        aria-label="Reject all cookies">Reject All</button
+      >
+      <button
+        id="accept-cookies-btn"
+        class="rounded-full w-full select-none text-sm text-white font-medium sm:font-semibold sm:text-base py-3 px-6 bg-blue hover:bg-blueHover hover:transition-colors hover:duration-300 active:bg-blueActive md:w-auto"
+        role="button"
+        aria-label="Accept all cookies">Accept All</button
+      >
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const cookieBanner = document.getElementById("cookie-banner");
+    const acceptButton = document.getElementById("accept-cookies-btn");
+    const rejectButton = document.getElementById("reject-cookies-btn");
+    const GA_ACCEPTED_EVENT_KEY = cookieBanner.getAttribute("data-ga-event");
+    const landingName = "gateway-landing";
+    const acceptedCookieName = `${landingName}-cookies-accepted`;
+    const rejectedCookieName = `${landingName}-cookies-rejected`;
+
+    function getCookie(name: string) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(";").shift();
+    }
+
+    function setCookie(name: string, value: string, days: number) {
+      const expires = new Date(Date.now() + days * 864e5).toUTCString();
+      document.cookie = `${name}=${value}; expires=${expires}; path=/;`;
+    }
+
+    function handleCookies(accepted: boolean) {
+      if (accepted) {
+        setCookie(acceptedCookieName, "true", 365);
+        document.cookie = `${rejectedCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+        window.dataLayer = window.dataLayer || [];
+
+        if (GA_ACCEPTED_EVENT_KEY) {
+          window.dataLayer.push({ event: GA_ACCEPTED_EVENT_KEY });
+        }
+      } else {
+        setCookie(rejectedCookieName, "true", 365);
+        document.cookie = `${acceptedCookieName}=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;`;
+      }
+      cookieBanner.style.display = "none";
+    }
+
+    const cookiesAccepted = getCookie(acceptedCookieName);
+    const cookiesRejected = getCookie(rejectedCookieName);
+
+    if (cookiesAccepted || cookiesRejected) {
+      cookieBanner.style.display = "none";
+    }
+
+    acceptButton.addEventListener("click", () => handleCookies(true));
+    rejectButton.addEventListener("click", () => handleCookies(false));
+  });
+</script>

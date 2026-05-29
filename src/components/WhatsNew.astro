@@ -1,0 +1,61 @@
+---
+import CableIcon from "./imageComponents/CableIcon.astro";
+import CloudOffIcon from "./imageComponents/CloudOffIcon.astro";
+import MenuIcon from "./imageComponents/MenuIcon.astro";
+import UCMIcon from "./imageComponents/UCMIcon.astro";
+---
+
+<section class="flex flex-col items-center my-14 md:mt-32 md:mb-16">
+  <h2 class="text-3xl text-text font-bold mb-10">What's New in 3.0</h2>
+  <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 md:grid-cols-3">
+    <div class="flex flex-col items-center text-center">
+      <div class="max-w-[312px] mx-auto flex flex-col items-center text-center">
+        <CloudOffIcon />
+        <h3 class="text-lg text-text font-semibold mt-4 mb-2">
+          Local-first Architecture
+        </h3>
+        <p 
+          class="text-base text-textGray2"
+          aria-label="Description of the secure and reliable energy management system, based on open-source Enapter Industrial Linux."
+        >
+          Secure and reliable energy management system based on open-source
+          <br />
+          Enapter Industrial Linux.
+        </p>
+
+      </div>
+    </div>
+    <div class="flex flex-col items-center text-center">
+      <div class="max-w-[312px] mx-auto flex flex-col items-center text-center">
+        <CableIcon />
+        <h3 class="text-lg text-text font-semibold mt-4 mb-2">
+          Enhanced Connectivity
+        </h3>
+        <p 
+          class="text-base text-textGray2"
+          aria-label="Description of the 2nd generation (M2) Universal Communication Modules including Enapter LINK, a wired bus communication technology."
+        >
+          The 2nd generation (M2) of Universal Communication Modules includes
+          Enapter LINK (wired bus communication technology).
+        </p>
+
+      </div>
+    </div>
+    <div class="flex flex-col items-center text-center sm:col-span-2 md:col-span-1">
+      <div class="max-w-[312px] mx-auto flex flex-col items-center text-center">
+        <UCMIcon />
+        <h3 class="text-lg text-text font-semibold mt-4 mb-2">
+          Less Hardware Needed
+        </h3>
+        <p 
+          class="text-base text-textGray2"
+          aria-label="Integrate multiple devices with Enapter Blueprints using a single Universal Communication Module (UCM)."
+        >
+          Integrate multiple devices with Enapter Blueprints using a single
+          Universal Communication Module (UCM).
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</section>

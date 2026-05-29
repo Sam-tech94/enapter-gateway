@@ -1,0 +1,83 @@
+---
+import DiscordButton from "./DiscordButton.astro";
+import ChevronBlackRight from "./imageComponents/ChevronBlackRight.astro";
+import ChevronRight from "./imageComponents/ChevronRight.astro";
+---
+
+<section class="flex flex-col-reverse gap-10 md:flex-row md:gap-16">
+  <div class="md:max-w-[348px] lg:max-w-[476px] xl:max-w-[600px]">
+    <h1 class="text-4xl text-text leading-10 font-extrabold tracking-tight">
+      Enapter Gateway Software
+    </h1>
+    <p
+      class="text-lg text-textGray2 leading-7 font-normal mt-6"
+      aria-label="Instruction to upload firmware and create bootable USB"
+    >
+      Upload the latest firmware version to create a Bootable USB Flash with
+      Enapter Software for your gateway.
+    </p>
+    <p
+      class="text-lg text-textGray2 leading-7 font-normal mt-4"
+      aria-label="Link to Enapter Gateway Software Handbook"
+    >
+      Find out more at <a
+        href="https://handbook.enapter.com/software/gateway_software/"
+        target="_blank"
+        class="body-link text-textLink hover:text-textLinkHover hover:transition-colors hover:duration-200"
+        aria-label="Enapter Gateway Software Handbook">handbook.enapter.com</a
+      >
+    </p>
+    <div class="flex flex-col gap-4 mt-10 md:mt-14 xl:flex-row">
+      <a
+        href="https://downloads.enapter.com/gateway/release/enapter-os-enterprise-v3.0.0-beta6.587234.zip"
+        download
+        class="body-link group flex justify-between cursor-pointer p-4 pl-6 bg-blue font-medium rounded-xl text-white leading-6 hover:bg-blueHover hover:transition-colors hover:duration-300 active:bg-blueActive md:gap-x-6 flex-1"
+        aria-label="Download Beta's Latest Version v3.0.0-beta6.587234"
+      >
+        <h2>
+          Download
+          <span class="block">v3.0.0-beta6.587234</span>
+        </h2>
+        <ChevronRight />
+      </a>
+
+      <a
+        href="https://downloads.enapter.com/gateway/release/enapter-linux-2.5.3.596463.zip"
+        download
+        class="body-link group flex justify-between cursor-pointer p-4 pl-6 bg-backgroundObject font-medium rounded-xl text-base text-text leading-6 hover:bg-backgroundObjectHover hover:transition-colors hover:duration-300 active:bg-backgroundObjectActive md:gap-x-6 flex-1"
+        aria-label="Download Latest Version of Enapter Gateway Software v2.5.3.596463"
+      >
+        <h2>
+          Download
+          <span class="block">v2.5.3.596463</span>
+        </h2>
+        <ChevronRight />
+      </a>
+    </div>
+
+    <div class="mb-10 mt-6 flex items-center gap-1">
+      <a
+        href="https://downloads.enapter.com/gateway/release/"
+        class="body-link group text-sm text-text leading-5 font-semibold flex items-center gap-1 cursor-pointer mr-[11px] hover:text-textGray2 hover:transition-colors hover:duration-200"
+        target="_blank"
+        aria-label="View Previous Versions of Enapter Gateway Software"
+        >Previous versions
+        <ChevronBlackRight />
+      </a>
+    </div>
+
+    <div class="flex flex-wrap items-center gap-2">
+      <p
+        class="text-base text-textGray leading-6"
+        aria-label="If you have questions, talk to us in Discord"
+      >
+        If you have questions, talk to us in
+      </p>
+      <DiscordButton />
+    </div>
+  </div>
+
+  <div class="self-center md:self-start basis-1/2">
+    <img src="/gateway.png" alt="Enapter Gateway Software" />
+  </div>
+</section>
